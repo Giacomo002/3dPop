@@ -17,8 +17,10 @@ const code_distancepx = document.getElementsByClassName('code_distancepx');
 
 const bt_change_text_div = document.getElementById('bt_change_text_div');
 const change_html_css = document.getElementById('change_html_css');
+const code_html2 = document.getElementById('code_html2');
 // const bt_change_text_div_textC = document.getElementById('bt_change_text_div_textC');
 
+let css_html = false;
 let dataId = "1";
 
 let distance_px = 12;
@@ -57,6 +59,12 @@ bt_change_text_div.addEventListener('click', () => {
         bt_change_text_div.textContent = 'change to text';
         document.getElementById('div_show').style.display = 'flex';
         document.getElementById('text_show').style.display = 'none';
+        document.getElementById('3d_text_h2').style.display = 'none';
+        document.getElementById('input_3d_text').style.display = 'none';
+        document.getElementById('change_html_css').style.display = 'none';
+        document.getElementById('code_css').style.display = 'block';
+        document.getElementById('code_html').style.display = 'none';
+        change_html_css.textContent = 'See html';
         shadowType = 'box-shadow';
         classType = '.div_pop';
         for (var i = 0; i < code_class0.length; i++) {
@@ -70,6 +78,9 @@ bt_change_text_div.addEventListener('click', () => {
         bt_change_text_div.textContent = 'change to div';
         document.getElementById('div_show').style.display = 'none';
         document.getElementById('text_show').style.display = 'flex';
+        document.getElementById('3d_text_h2').style.display = 'flex';
+        document.getElementById('input_3d_text').style.display = 'flex';
+        document.getElementById('change_html_css').style.display = 'flex';
         shadowType = 'text-shadow';
         classType = '.text_pop span';
         for (var i = 0; i < code_class0.length; i++) {
@@ -88,39 +99,47 @@ change_html_css.addEventListener('click', () => {
         change_html_css.textContent = 'See css';
         document.getElementById('code_html').style.display = 'block';
         document.getElementById('code_css').style.display = 'none';
+        css_html = true;
     } else {
         change_html_css.textContent = 'See html';
         document.getElementById('code_html').style.display = 'none';
         document.getElementById('code_css').style.display = 'block';
+        css_html = false;
     }
 
 });
 
 // -----------------------------------------------------------------------------------------------
 input_3d_text.addEventListener("keyup", function (e) {
-    // console.log(e.key); 
-
     if (e.key == 'Backspace') {
         text_show.removeChild(text_show.lastElementChild);
+        code_html2.removeChild(code_html2.lastElementChild);
+        code_html2.removeChild(code_html2.lastElementChild);
     } else {
         text_show.innerHTML = '';
+        code_html2.innerHTML = '';
         for (let i = 0; i < input_3d_text.value.length; i++) {
             console.log(input_3d_text.value[i]);
             if (input_3d_text.value[i] == " ") {
+                code_html2.innerHTML += '<span><span class="hljs-section">&lt;</span><span class="hljs-doctag">span</span><span class="hljs-section">&gt;</span>nbsp<span class="hljs-section">&lt;</span><span class="hljs-doctag">/span</span><span class="hljs-section">&gt;</span></span><br>';
                 text_show.innerHTML += '<span>&nbsp;</span>';
             } else {
+                code_html2.innerHTML += '<span><span class="hljs-section">&lt;</span><span class="hljs-doctag">span</span><span class="hljs-section">&gt;</span>' + input_3d_text.value[i] + '<span class="hljs-section">&lt;</span><span class="hljs-doctag">/span</span><span class="hljs-section">&gt;</span></span><br>';
                 text_show.innerHTML += '<span>' + input_3d_text.value[i] + '</span>';
             }
         }
     }
     if (input_3d_text.value == null || input_3d_text.value == "") {
         text_show.innerHTML = '';
+        code_html2.innerHTML = '';
         let default_3dtext = '3d text';
         for (let i = 0; i < default_3dtext.length; i++) {
             console.log(default_3dtext[i]);
             if (default_3dtext[i] == " ") {
+                code_html2.innerHTML += '<span><span class="hljs-section">&lt;</span><span class="hljs-doctag">span</span><span class="hljs-section">&gt;</span>nbsp<span class="hljs-section">&lt;</span><span class="hljs-doctag">/span</span><span class="hljs-section">&gt;</span></span><br>';
                 text_show.innerHTML += '<span>&nbsp;</span>';
             } else {
+                code_html2.innerHTML += '<span><span class="hljs-section">&lt;</span><span class="hljs-doctag">span</span><span class="hljs-section">&gt;</span>' + default_3dtext[i] + '<span class="hljs-section">&lt;</span><span class="hljs-doctag">/span</span><span class="hljs-section">&gt;</span></span><br>';
                 text_show.innerHTML += '<span>' + default_3dtext[i] + '</span>';
             }
         }
@@ -129,7 +148,7 @@ input_3d_text.addEventListener("keyup", function (e) {
 });
 // -----------------------------------------------------------------------------------------------
 function copyFunction() {
-    const copyText = document.getElementById("code_pre_text").textContent;
+    const copyText = document.getElementById('code_css').textContent;
     const textArea = document.createElement('textarea');
     textArea.textContent = copyText;
     document.body.append(textArea);
@@ -137,7 +156,24 @@ function copyFunction() {
     document.execCommand("copy");
     document.body.removeChild(textArea);
 }
-document.getElementById('copy_b_code').addEventListener('click', copyFunction);
+function copyFunction1() {
+    const copyText = document.getElementById('code_html').textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+}
+
+document.getElementById('copy_b_code').addEventListener('click', () => {
+    if (css_html){
+        copyFunction1();
+    } else {
+        copyFunction();
+    }
+});
+
 function copyToClipboard(text) {
     var dummy = document.createElement("textarea");
     // to avoid breaking orgain page when copying more words
