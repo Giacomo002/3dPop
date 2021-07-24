@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
+
+/* 
+base00  #1d2021  Default Background
+base01  #3c3836  Lighter Background (Used for status bars, line number and folding marks)
+base02  #504945  Selection Background
+base03  #665c54  Comments, Invisibles, Line Highlighting
+base04  #bdae93  Dark Foreground (Used for status bars)
+base05  #d5c4a1  Default Foreground, Caret, Delimiters, Operators
+base06  #ebdbb2  Light Foreground (Not often used)
+base07  #fbf1c7  Light Background (Not often used)
+base08  #fb4934  Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+base09  #fe8019  Integers, Boolean, Constants, XML Attributes, Markup Link Url
+base0A  #fabd2f  Classes, Markup Bold, Search Text Background
+base0B  #b8bb26  Strings, Inherited Class, Markup Code, Diff Inserted
+base0C  #8ec07c  Support, Regular Expressions, Escape Characters, Markup Quotes
+base0D  #83a598  Functions, Methods, Attribute IDs, Headings
+base0E  #d3869b  Keywords, Storage, Selector, Markup Italic, Diff Changed
+base0F  #d65d0e  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> 
+*/
+/* 
+  --base00: #1d2021; 
+  --base01: #3c3836;
+  --base02: #504945; 
+  --base03: #665c54; 
+  --base04: #bdae93; 
+  --base05: #d5c4a1; 
+  --base06: #ebdbb2; 
+  --base07: #fbf1c7; 
+  --base0D: #83a598; 
+  */
+:root {
+  --base00: #1d2021;
+  --base01: #3c3836;
+  --base02: #504945;
+  --base03: #665c54;
+  --base04: #bdae93;
+  --base05: #d5c4a1;
+  --base06: #ebdbb2;
+  --base07: #fbf1c7;
+  --base0D: #83a598;
+}
+
+*::selection {
+  background: var(--base02);
+}
+
+*::-moz-selection {
+  background: var(--base02);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--base00);
+  font-family: "Montserrat", sans-serif;
+}
+
+.header_sec{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+   width: 100%;
+  height: 5%;
+}
+
+.footer_sec{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+   width: 100%;
+  height: 12.5%;
+}
+
+.main_sec{
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.overall_sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0px 25px 0px 25px;
+  border-radius: 30px;
+  border: 2px solid var(--base04);
+  box-sizing: border-box;
+}
+
+.left_sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 65%;
+}
+
+.right_sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 30%;
+}
+
+.down_left_part{
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 65%;
+}
+
+.button_sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.code_snippet {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  border: 2px solid var(--base04);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.option_sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 47%;
+  height: 94%;
+}
+
+.live_sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 94%;
+}
+
+.slider1_sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  max-height: 70px;
+  border-radius: 10px;
+  border: 2px solid var(--base04);
+}
+
+.animtion_opt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
+.colorOps_sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
+.color_cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* height: 100%; */
+}
+.color_Palette {
+  width: 25%;
+  border-radius: 10px;
+  border: 2px solid var(--base04);
+  /* box-shadow: -3px 3px 0px var(--base04); */
+  padding: 5px;
+}
+
+.live_preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+/* ----------------------------- */
+
+#code_html {
+  display: none;
+}
