@@ -330,6 +330,30 @@
     </div>
     <script src="./js/index.js"></script>
     <script src="./js/fontAwesome.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAQf1SkPOr2AnrRVTvjgWQAKqrx2SWmg0E",
+            authDomain: "textpop3d.firebaseapp.com",
+            projectId: "textpop3d",
+            storageBucket: "textpop3d.appspot.com",
+            messagingSenderId: "539338702008",
+            appId: "1:539338702008:web:41362809f23af12c99884d",
+            measurementId: "G-QN3K945CEX"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </body>
 
 </html>
