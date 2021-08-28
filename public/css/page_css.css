@@ -328,39 +328,6 @@ code {
   transform: scale(0.95);
 }
 
-.left_social {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 30%;
-}
-.right_social {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 30%;
-}
-.right_social a {
-  text-decoration: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 75%;
-  padding: 10px;
-  border-radius: 15px;
-  border: 2px solid var(--base04);
-  transition: 250ms;
-}
-.right_social:active {
-  transform: scale(0.95);
-}
-.right_social i {
-  font-size: 2rem;
-  color: var(--base05);
-}
 /* --------------------------------- */
 
 .bmc-btn svg {
